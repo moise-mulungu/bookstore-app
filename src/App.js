@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/Navigation';
 import Books from './components/Books';
 import Categories from './components/Categories';
 import AppNav from './components/Navigation';
@@ -9,12 +8,9 @@ import AppNav from './components/Navigation';
 const books = [
   {
     id: 1,
-    genre: 'genre',
     title: 'book title',
     author: 'author',
     status: 'complete',
-    currentChapter: 'Current chapter',
-    chapterNumber: 'Chapter #number',
   },
 ];
 
