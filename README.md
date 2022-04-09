@@ -25,9 +25,9 @@ On this step of the project, I added the react-router with two routs and links.
 
 ## Deploy 
 
-- [heroku](https://math-magicians-moise.herokuapp.com/)
+- [heroku]
 
-- [Netlify](https://heroic-begonia-871006.netlify.app)
+- [Netlify]
 
 ## Getting Started
 
