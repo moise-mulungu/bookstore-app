@@ -8,7 +8,7 @@ export default function AddBook() {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
 
-  function submitBookToStore (event) {
+  function submitBookToStore(event) {
     event.preventDefault();
     const newBook = {
       id: uuidv4(),
@@ -24,9 +24,9 @@ export default function AddBook() {
     <div>
       <h2>Add New Book</h2>
       <form onSubmit={submitBookToStore}>
-        <input type="text" placeholder="Add book..." value={title} onChange={(event) => setTitle(event.target.value)} required/>
-        <input type="text" placeholder="Book title" value={author} onChange={(event) => setAuthor(event.target.value)} required/>
-        <select id='bookgenre' key="genre" defaultValue="Genre">
+        <input type="text" placeholder="Add book..." value={title} onChange={(event) => setTitle(event.target.value)} required />
+        <input type="text" placeholder="Book title" value={author} onChange={(event) => setAuthor(event.target.value)} required />
+        <select id="bookgenre" key="genre" defaultValue="Genre">
           <option value="all authors">all authors</option>
         </select>
         <button type="submit">Add Book</button>
