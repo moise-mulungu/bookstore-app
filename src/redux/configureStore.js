@@ -5,11 +5,11 @@ import categoriesReducer from './categories/categories';
 
 const loggerMiddleware = createLogger();
 
-const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore)
+const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore);
 
 const reducer = combineReducers({
-    booksReducer,
-    categoriesReducer,
+  booksReducer,
+  categoriesReducer,
 });
 
 const configureStore = (initialState) => createStoreWithMiddleware(reducer, initialState);
