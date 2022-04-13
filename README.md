@@ -6,7 +6,7 @@ This is booklist app that i am building with React and Redux
 ![](file:///home/moise/Leaderboard-project/dist/index.html)
 
 # Bookstore initialization
-On this step of the project, I added the react-router with two routs and links.
+On this step of the project, I added actions and reducer with ducks pattern.
 
 > Open with with the server
 

@@ -16,5 +16,5 @@ export function CheckStatus(id) {
         type: CHECKSTATUS,
         payload: { id },
 
-    }
+    };
 }
