@@ -14,7 +14,3 @@ export default function Books() {
     </>
   );
 }
-
-// Books.propTypes = {
-//   books: Proptypes.arrayOf(Proptypes.shape({})).isRequired,
-// };
