@@ -1,19 +1,25 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { del } from '../redux/books/books';
+import { del, getBooks } from '../redux/books/books';
 
 export default function Book({ book }) {
   const dispatch = useDispatch();
+
+  const removeBook = (event) => {
+    dispatch(del(event.target.value));
+    dispatch(getBooks());
+  };
+
   return (
     <div className="bookCard">
       <div className="">
-        <p className="genre">{book.genre}</p>
+        <p className="genre">{book.category}</p>
         <p className="title">{book.title}</p>
         <p className="author">{book.author}</p>
         <ul>
           <li><button type="button">Comments</button></li>
-          <li><button type="button" onClick={() => dispatch(del(book.id))}>Remove</button></li>
+          <li><button type="button" value={book.id} onClick={removeBook}>Remove</button></li>
           <li><button type="button">Edit</button></li>
         </ul>
       </div>
