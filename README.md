@@ -6,7 +6,7 @@ This is booklist app that i am building with React and Redux
 ![](file:///home/moise/Leaderboard-project/dist/index.html)
 
 # Bookstore initialization
-On this step of the project, I added actions and reducer with ducks pattern.
+On this step of the project, I used redux in react components.
 
 > Open with with the server
 
@@ -38,7 +38,7 @@ git clone  https://github.com/moise-mulungu/git clone  https://github.com/moise-
 # Install
 
 - Run :
-1. `npm create-<app's name> .`
+1. `npm create-react-redux.`
 2. `cd <app's name>`,
 3. `npm start`
 
