@@ -9,7 +9,7 @@ export default function Books() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBooks());
-  }, );
+  });
   return (
     <>
       {books.map((book) => (

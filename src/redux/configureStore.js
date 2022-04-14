@@ -9,7 +9,7 @@ const reducer = combineReducers({
 });
 
 const configureStore = createStore(
-  reducer, 
+  reducer,
   applyMiddleware(thunk),
 );
 export default configureStore;

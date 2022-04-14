@@ -19,16 +19,16 @@ export default function booksReducer(state = initialState, action = {}) {
     case UPDATE:
       return [
         ...action.payload,
-      ]  
+      ];
     default: return state;
   }
 }
 
 export const getBooks = () => (dispatch) => fetch(`${API}/books`,
-{
-  method: 'GET',
-  headers: { 'content-type': 'application/json' },
-}).then((res) => res.json()).then((data)=> {
+  {
+    method: 'GET',
+    headers: { 'content-type': 'application/json' },
+  }).then((res) => res.json()).then((data) => {
   const books = Object.keys(data).map((key) => {
     const book = data[key][0];
     return {
@@ -40,13 +40,12 @@ export const getBooks = () => (dispatch) => fetch(`${API}/books`,
 }).catch(() => {});
 
 // Action Creators
-export const add = (book) => (dispatch) => fetch (`${API}/books`, 
-{
-  method: 'POST',
-  headers: { 'content-type': 'application/json' },
-  body: JSON.stringify(book),
-},
-).then((res) => {
+export const add = (book) => (dispatch) => fetch(`${API}/books`,
+  {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(book),
+  }).then((res) => {
   if (res.ok) {
     dispatch({
       type: ADD,
