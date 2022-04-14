@@ -1,18 +1,11 @@
-// Actions
+const API = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/REgULIZ1z31eifsbdnzL';
+
 const ADD = 'add';
 const DEL = 'del';
+const UPDATE = 'getBooks';
 
 // Empty array of books
-const initialState = [{
-  id: '1',
-  genre: 'genre',
-  title: 'book title',
-  author: 'author',
-  status: 'complete',
-  currentChapter: 'Current chapter',
-  chspterNumber: 'Chapter number',
-},
-];
+const initialState = [];
 
 // Reducer
 export default function booksReducer(state = initialState, action = {}) {
@@ -23,21 +16,58 @@ export default function booksReducer(state = initialState, action = {}) {
       }];
     case DEL:
       return [...state.filter((book) => book.id !== action.payload.id)];
+    case UPDATE:
+      return [
+        ...action.payload,
+      ];
     default: return state;
   }
 }
 
-// Action Creators
-export function add(book) {
-  return {
-    type: ADD,
-    payload: book,
-  };
-}
+export const getBooks = () => (dispatch) => fetch(`${API}/books`,
+  {
+    method: 'GET',
+    headers: { 'content-type': 'application/json' },
+  }).then((res) => res.json()).then((data) => {
+  const books = Object.keys(data).map((key) => {
+    const book = data[key][0];
+    return {
+      id: key,
+      ...book,
+    };
+  });
+  dispatch({ type: UPDATE, payload: books });
+}).catch(() => {});
 
-export function del(id) {
-  return {
-    type: DEL,
-    payload: { id },
+// Action Creators
+export const add = (book) => (dispatch) => fetch(`${API}/books`,
+  {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(book),
+  }).then((res) => {
+  if (res.ok) {
+    dispatch({
+      type: ADD,
+      payload: book,
+    });
+  }
+});
+
+export const del = (bookId) => (dispatch) => {
+  const body = {
+    item_id: bookId,
   };
-}
+  return fetch(`${API}/books/${bookId}`, {
+    method: 'DELETE',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(body),
+  }).then((res) => {
+    if (res.ok) {
+      dispatch({
+        type: DEL,
+        id: bookId,
+      });
+    }
+  }).catch(() => {});
+};
