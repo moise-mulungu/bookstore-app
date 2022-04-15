@@ -24,18 +24,23 @@ export default function AddBook() {
   }
 
   return (
-    <div>
-      <h2>Add New Book</h2>
+    <div className="addForm">
+      <h3>Add New Book</h3>
       <form onSubmit={submitBookToStore}>
-        <input type="text" placeholder="Add book..." value={title} onChange={(event) => setTitle(event.target.value)} required />
-        <input type="text" placeholder="Book title" value={author} onChange={(event) => setAuthor(event.target.value)} required />
+        <input type="text" placeholder="Book Title" value={title} onChange={(event) => setTitle(event.target.value)} required />
+        <input type="text" placeholder="Author" value={author} onChange={(event) => setAuthor(event.target.value)} required />
         <select type="text" onChange={(event) => setCategory(event.target.value)}>
           <option value="category">category</option>
-          <option value="Classics">Classics</option>
-          <option value="Romance">Romance</option>
-          <option value="Adventure">Adventure</option>
           <option value="Science">Science</option>
-          <option value="Historical">Historical</option>
+          <option value="Classics">Classics</option>
+          <option value="Novel">Novel</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Comic">Comic</option>
+          <option value="Detective">Detective</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Fiction">Fiction</option>
         </select>
         <button type="submit">Add Book</button>
       </form>

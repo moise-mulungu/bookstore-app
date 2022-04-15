@@ -13,22 +13,37 @@ export default function Book({ book }) {
 
   return (
     <div className="bookCard">
-      <div className="">
+      <div className="bookInfo">
         <p className="genre">{book.category}</p>
         <p className="title">{book.title}</p>
         <p className="author">{book.author}</p>
-        <ul>
-          <li><button type="button">Comments</button></li>
-          <li><button type="button" value={book.id} onClick={removeBook}>Remove</button></li>
-          <li><button type="button">Edit</button></li>
+        <ul className="smallButtons">
+          <li><button className="smallButton" type="button">Comments</button></li>
+          <li><button className="smallButton" type="button" value={book.id} onClick={removeBook}>Remove</button></li>
+          <li><button className="smallButton" type="button">Edit</button></li>
         </ul>
       </div>
-      <div className="book-data">
-        <div>
-          <p>{book.status}</p>
-          <p>{book.currentChapter}</p>
-          <p>{book.chapterNumber}</p>
-          <button type="button">Update progress</button>
+      <div className="progress">
+        <div className="chart">
+          <div className="ProgressBar">
+            <div className="circle-wrap">
+              <div className="circle">
+                <div className="mask half">
+                  <div className="fill" />
+                </div>
+                <div className="inside-circle" />
+              </div>
+            </div>
+          </div>
+          <div className="percentages">
+            <h2>47%</h2>
+            <p className="status">Completed</p>
+          </div>
+        </div>
+        <div className="rightSection">
+          <p className="status">currentChapter</p>
+          <p>chapterNumber</p>
+          <button className="bookButton" type="button">Update progress</button>
         </div>
       </div>
     </div>
