@@ -25,7 +25,7 @@ On this last step of the project, I used style from `Zeplin`.
 
 ## Deploy 
 
-- [Netlify]
+- [Netlify](https://animated-stroopwafel-ca252e.netlify.app/)
 
 ## Getting Started
 
