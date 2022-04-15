@@ -7,7 +7,7 @@ export default function Categories() {
   const currentStatus = useSelector((state) => state.CategoriesReducer);
   return (
     <div>
-      <button type="button" onClick={() => dispatch(CheckStatus())}>Check status</button>
+      <button className="configButton" type="button" onClick={() => dispatch(CheckStatus())}>Check status</button>
       {currentStatus}
     </div>
   );

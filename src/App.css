@@ -83,11 +83,11 @@ ul {
   color: #4386bf;
 }
 
-.smallButtons {
+.bookButtons {
   padding-left: 0%;
 }
 
-.smallButton {
+.bookButton {
   outline: none;
   border: none;
   background-color: #fff;
@@ -196,7 +196,7 @@ ul {
   padding-left: 10%;
 }
 
-.bookButton {
+.buttonProgress {
   padding: 0.438rem 1.188rem 0.5rem 1.375rem;
   border: none;
   border-radius: 3px;
@@ -238,4 +238,15 @@ form button {
   border-radius: 5px;
   cursor: pointer;
   color: white;
+}
+
+.configButton {
+  width: 15%;
+  padding: 1% 2%;
+  background-color: #112535;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transform: translate(20%, 20%);
 }

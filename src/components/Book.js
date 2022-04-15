@@ -13,14 +13,14 @@ export default function Book({ book }) {
 
   return (
     <div className="bookCard">
-      <div className="bookInfo">
+      <div className="bookDetails">
         <p className="genre">{book.category}</p>
         <p className="title">{book.title}</p>
         <p className="author">{book.author}</p>
-        <ul className="smallButtons">
-          <li><button className="smallButton" type="button">Comments</button></li>
-          <li><button className="smallButton" type="button" value={book.id} onClick={removeBook}>Remove</button></li>
-          <li><button className="smallButton" type="button">Edit</button></li>
+        <ul className="bookButtons">
+          <li><button className="bookButton" type="button">Comments</button></li>
+          <li><button className="bookButton" type="button" value={book.id} onClick={removeBook}>Remove</button></li>
+          <li><button className="bookButton" type="button">Edit</button></li>
         </ul>
       </div>
       <div className="progress">
@@ -43,7 +43,7 @@ export default function Book({ book }) {
         <div className="rightSection">
           <p className="status">currentChapter</p>
           <p>chapterNumber</p>
-          <button className="bookButton" type="button">Update progress</button>
+          <button className="buttonProgress" type="button">Update progress</button>
         </div>
       </div>
     </div>
