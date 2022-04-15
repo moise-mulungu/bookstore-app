@@ -35,7 +35,7 @@ export default function Book({ book }) {
               </div>
             </div>
           </div>
-          <div className="percentages">
+          <div className="percentage">
             <h2>47%</h2>
             <p className="status">Completed</p>
           </div>
