@@ -5,30 +5,35 @@ import { add } from '../redux/books/books';
 
 export default function AddBook() {
   const dispatch = useDispatch();
-  const [author, setAuthor] = useState('');
-  const [title, setTitle] = useState('');
   const [categoryState, setCategory] = useState('');
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
 
   function submitBookToStore(event) {
     event.preventDefault();
     const newBook = {
       item_id: uuidv4(),
+      category: categoryState,
       title,
       author,
-      category: categoryState,
     };
     dispatch(add(newBook));
+  }
+
+  const handler = (event) => {
+    event.preventDefault();
+    setCategory('');
     setTitle('');
     setAuthor('');
-    setCategory('');
-  }
+  };
 
   return (
     <div className="addForm">
       <hr className="formLine" />
       <h3>Add New Book</h3>
-      <form onSubmit={submitBookToStore}>
+      <form onSubmit={handler}>
         <input type="text" placeholder="Book Title" value={title} onChange={(event) => setTitle(event.target.value)} required />
+        <input type="text" className="author" placeholder="Author" value={author} onChange={(event) => setAuthor(event.target.value)} required />
         <select type="text" onChange={(event) => setCategory(event.target.value)}>
           <option value="category">category</option>
           <option value="Science">Science</option>
@@ -42,7 +47,8 @@ export default function AddBook() {
           <option value="Fantasy">Fantasy</option>
           <option value="Fiction">Fiction</option>
         </select>
-        <button type="submit">Add Book</button>
+        <button type="submit" onClick={(event) => submitBookToStore(event)}>Add Book</button>
+
       </form>
     </div>
   );

@@ -1,73 +1,62 @@
-const API = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/QiG9MCTf7w2LPYRlLJB4';
-
+const API = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/9Mp6empbKHhj96nJbJTP/books';
 const ADD = 'add';
 const DEL = 'del';
 const UPDATE = 'getBooks';
 
-// Empty array of books
 const initialState = [];
 
-// Reducer
-export default function booksReducer(state = initialState, action = {}) {
-  switch (action.type) {
-    case ADD:
-      return [...state, {
-        ...action.payload,
-      }];
-    case DEL:
-      return [...state.filter((book) => book.id !== action.payload.id)];
-    case UPDATE:
-      return [
-        ...action.payload,
-      ];
-    default: return state;
-  }
-}
+// Actions
 
-export const getBooks = () => (dispatch) => fetch(`${API}/books`,
-  {
-    method: 'GET',
-    headers: { 'content-type': 'application/json' },
-  }).then((res) => res.json()).then((data) => {
-  const books = Object.keys(data).map((key) => {
-    const book = data[key][0];
-    return {
-      id: key,
-      ...book,
-    };
-  });
-  dispatch({ type: UPDATE, payload: books });
-}).catch(() => {});
-
-// Action Creators
-export const add = (book) => (dispatch) => fetch(`${API}/books`,
-  {
+export const add = (book) => async (dispatch) => {
+  await fetch(API, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(book),
-  }).then((res) => {
-  if (res.ok) {
-    dispatch({
-      type: ADD,
-      payload: book,
-    });
-  }
-});
-
-export const del = (bookId) => (dispatch) => {
-  const body = {
-    item_id: bookId,
-  };
-  return fetch(`${API}/books/${bookId}`, {
+  })
+    .then((response) => response.text())
+    .then(
+      () => dispatch({ type: ADD, payload: book }),
+      () => dispatch({ type: ADD, payload: null }),
+    );
+};
+export const del = (bookId) => async (dispatch) => {
+  await fetch(`${API}/${bookId}`, {
     method: 'DELETE',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(body),
-  }).then((res) => {
-    if (res.ok) {
-      dispatch({
-        type: DEL,
-        id: bookId,
-      });
-    }
-  }).catch(() => {});
+    body: JSON.stringify({ item_id: bookId }),
+  })
+    .then((response) => response.text())
+    .then(
+      () => dispatch({ type: DEL, payload: bookId }),
+      () => dispatch({ type: DEL, payload: null }),
+    );
 };
+export const getBooks = () => async (dispatch) => {
+  await fetch(API)
+    .then((books) => books.json())
+    .then(
+      (data) => dispatch({ type: UPDATE, payload: data }),
+      () => dispatch({ type: UPDATE, payload: [] }),
+    );
+};
+// Reducer
+const booksReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD:
+      return [...state, action.payload];
+    case DEL:
+      return state.filter((book) => book.item_id !== action.payload);
+    case UPDATE: {
+      const bookList = [];
+      Object.keys(action.payload).forEach((key) => {
+        const book = action.payload[key][0];
+        book.item_id = key;
+        bookList.push(book);
+      });
+      return bookList;
+    }
+    default:
+      return state;
+  }
+};
+export default booksReducer;

@@ -5,21 +5,20 @@ import { del } from '../redux/books/books';
 
 export default function Book({ book }) {
   const dispatch = useDispatch();
-
-  const removeBook = (event) => {
-    dispatch(del(event.target.value));
-    // dispatch(getBooks());
+  const removeBook = (event, bookId) => {
+    event.preventDefault();
+    dispatch(del(bookId));
   };
 
   return (
-    <div className="bookCard">
+    <div className="bookCard" id={book.id}>
       <div className="bookDetails">
         <p className="genre">{book.category}</p>
         <p className="title">{book.title}</p>
         <p className="author">{book.author}</p>
         <ul className="bookButtons">
           <li><button className="bookButton" type="button">Comments</button></li>
-          <li><button className="rmv" type="button" value={book.id} onClick={removeBook}>Remove</button></li>
+          <li><button className="rmv" type="button" onClick={(event) => removeBook(event, book.item_id)}>Remove</button></li>
           <li><button className="bookButton" type="button">Edit</button></li>
         </ul>
       </div>
@@ -36,7 +35,7 @@ export default function Book({ book }) {
             </div>
           </div>
           <div className="percentage">
-            <h2>47%</h2>
+            <h2>64%</h2>
             <p className="status">Completed</p>
           </div>
         </div>
