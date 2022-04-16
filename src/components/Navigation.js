@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import icon from './icon.png';
 
 export default function AppNav() {
   return (
@@ -12,7 +13,7 @@ export default function AppNav() {
         </ul>
       </div>
       <div className="icon">
-        <img src="https://img.icons8.com/external-anggara-outline-color-anggara-putra/32/000000/external-avatar-interface-anggara-outline-color-anggara-putra.png" alt="profile" />
+        <img src={icon} alt="profile" />
       </div>
     </nav>
   );

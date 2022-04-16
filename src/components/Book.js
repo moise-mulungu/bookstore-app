@@ -1,14 +1,14 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { del, getBooks } from '../redux/books/books';
+import { del } from '../redux/books/books';
 
 export default function Book({ book }) {
   const dispatch = useDispatch();
 
   const removeBook = (event) => {
     dispatch(del(event.target.value));
-    dispatch(getBooks());
+    // dispatch(getBooks());
   };
 
   return (

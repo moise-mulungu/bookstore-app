@@ -25,10 +25,10 @@ export default function AddBook() {
 
   return (
     <div className="addForm">
+      <hr className="formLine" />
       <h3>Add New Book</h3>
       <form onSubmit={submitBookToStore}>
         <input type="text" placeholder="Book Title" value={title} onChange={(event) => setTitle(event.target.value)} required />
-        <input type="text" placeholder="Author" value={author} onChange={(event) => setAuthor(event.target.value)} required />
         <select type="text" onChange={(event) => setCategory(event.target.value)}>
           <option value="category">category</option>
           <option value="Science">Science</option>
