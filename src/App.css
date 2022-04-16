@@ -55,6 +55,21 @@ ul {
   border: none;
 }
 
+.rmv {
+  outline: none;
+  background-color: #fff;
+  color: #4386bf;
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 2px;
+  margin: 0.188rem 0.938rem 0.125rem 0;
+
+  border-left: 1px solid #18a02a;
+  border-right: 1px solid #328f3a;
+  border-top: none;
+  border-bottom: none;
+}
+
 .bookCard {
   display: flex;
   flex-direction: row;

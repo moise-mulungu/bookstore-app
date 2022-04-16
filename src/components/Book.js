@@ -19,7 +19,7 @@ export default function Book({ book }) {
         <p className="author">{book.author}</p>
         <ul className="bookButtons">
           <li><button className="bookButton" type="button">Comments</button></li>
-          <li><button className="bookButton" type="button" value={book.id} onClick={removeBook}>Remove</button></li>
+          <li><button className="rmv" type="button" value={book.id} onClick={removeBook}>Remove</button></li>
           <li><button className="bookButton" type="button">Edit</button></li>
         </ul>
       </div>
