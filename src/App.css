@@ -272,6 +272,7 @@ form button {
   color: white;
   transform: translate(20%, 20%);
 }
-.author {
+
+.Author {
   display: none;
 }

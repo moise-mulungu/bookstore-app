@@ -33,7 +33,7 @@ export default function AddBook() {
       <h3>Add New Book</h3>
       <form onSubmit={handler}>
         <input type="text" placeholder="Book Title" value={title} onChange={(event) => setTitle(event.target.value)} required />
-        <input type="text" className="author" placeholder="Author" value={author} onChange={(event) => setAuthor(event.target.value)} required />
+        <input type="text" className="Author" placeholder="Author" value={author} onChange={(event) => setAuthor(event.target.value)} required />
         <select type="text" onChange={(event) => setCategory(event.target.value)}>
           <option value="category">category</option>
           <option value="Science">Science</option>
