@@ -6,11 +6,11 @@ This is booklist app that i am building with React and Redux
 ![](file:///home/moise/Leaderboard-project/dist/index.html)
 
 # Bookstore initialization
-On this step of the project, I used redux in react components.
+On this last step of the project, I used style from `Zeplin`.
 
 > Open with with the server
 
-![screenshot](image/book-init.png).
+![screenshot](image/bookstore.png).
 
 ## Built With
 
@@ -25,9 +25,7 @@ On this step of the project, I used redux in react components.
 
 ## Deploy 
 
-- [heroku]
-
-- [Netlify]
+- [Netlify](https://animated-stroopwafel-ca252e.netlify.app/)
 
 ## Getting Started
 
